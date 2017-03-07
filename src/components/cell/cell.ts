@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CellModel } from './cell.model';
+import { StreamingMedia } from 'ionic-native';
 
 @Component({
   selector: 'cell',
@@ -14,5 +15,6 @@ export class CellComponent {
 
   onTap($event: Event): void {
     console.log('tap');
+    StreamingMedia.playAudio(this.model.audioUrl);
   }
 }
