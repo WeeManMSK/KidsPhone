@@ -14,7 +14,7 @@
 
 
 <ion-content padding no-bounce>
-    <form#personForm="ngForm" (submit)="onFormSubmit(form)" novalidate></form>
+    <form #cellForm="ngForm" (submit)="onFormSubmit(cellForm)" novalidate></form>
     <ion-item>
       <ion-label stacked>Title</ion-label>
       <ion-input type="text" required [(ngModel)]=model.title></ion-input>
