@@ -3,6 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { BoardPage, SettingsPage, AboutPage } from '../pages/pages';
 import { CellComponent } from '../components/components';
+import { Storage } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,6 @@ import { CellComponent } from '../components/components';
     SettingsPage,
     AboutPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, Storage]
 })
-export class AppModule {}
+export class AppModule { }
