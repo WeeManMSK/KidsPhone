@@ -1,22 +1,35 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { CellModel } from '../../components/components';
 
-/*
-  Generated class for the CellEdit page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-cell-edit',
   templateUrl: 'cell-edit.html'
 })
 export class CellEditPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  title: String;
+  model: CellModel;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CellEditPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+    if (this.paramsExist()) {
+      this.title = "Edit cell";
+    } else {
+      this.title = "Add cell";
+      this.model = new CellModel();
+    }
   }
 
+  private paramsExist(): boolean {
+    return !isNaN(Number.parseInt(this.navParams.data));
+  }
+
+  ionViewDidLoad() {
+
+  }
+
+  onSaveClick() {
+
+  }
 }

@@ -7,12 +7,28 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>cell-edit</ion-title>
+    <ion-title>{{ title }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding no-bounce>
+    <ion-item>
+      <ion-label stacked>Title</ion-label>
+      <ion-input type="text" required [(ngModel)]=model.title></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Description</ion-label>
+      <ion-input type="text" required [(ngModel)]=model.description></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Image</ion-label>
+      <ion-input type="text" [(ngModel)]=model.imageUrl></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Sound</ion-label>
+      <ion-input type="text" [(ngModel)]=model.audioUrl></ion-input>
+    </ion-item>
+    <button ion-button block (click)="onSaveClick()">Save</button>
 </ion-content>
