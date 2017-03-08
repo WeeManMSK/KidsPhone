@@ -21,7 +21,8 @@
       </ion-thumbnail>
       <h2>title</h2>
       <p>desc</p>
-      <button ion-button clear item-right>Edit</button>
+      <button ion-button clear item-right (click)="onEditClick()">Edit</button>
     </ion-item>
   </ion-list>
+  <button ion-button block (click)="onAddClick()">Add</button>
 </ion-content>

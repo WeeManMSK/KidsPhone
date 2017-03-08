@@ -1,7 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { BoardPage, SettingsPage, AboutPage } from '../pages/pages';
+import { BoardPage, SettingsPage, AboutPage, CellEditPage } from '../pages/pages';
 import { CellComponent } from '../components/components';
 import { Storage } from '@ionic/storage';
 
@@ -11,7 +11,8 @@ import { Storage } from '@ionic/storage';
     BoardPage,
     SettingsPage,
     AboutPage,
-    CellComponent
+    CellComponent,
+    CellEditPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -21,7 +22,8 @@ import { Storage } from '@ionic/storage';
     MyApp,
     BoardPage,
     SettingsPage,
-    AboutPage
+    AboutPage,
+    CellEditPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, Storage]
 })
