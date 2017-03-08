@@ -14,6 +14,7 @@
 
 
 <ion-content padding no-bounce>
+    <form#personForm="ngForm" (submit)="onFormSubmit(form)" novalidate></form>
     <ion-item>
       <ion-label stacked>Title</ion-label>
       <ion-input type="text" required [(ngModel)]=model.title></ion-input>
@@ -30,5 +31,5 @@
       <ion-label stacked>Sound</ion-label>
       <ion-input type="text" [(ngModel)]=model.audioUrl></ion-input>
     </ion-item>
-    <button ion-button block (click)="onSaveClick()">Save</button>
+    <button ion-button block type="submit">Save</button>
 </ion-content>

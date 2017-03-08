@@ -29,7 +29,24 @@ export class CellEditPage {
 
   }
 
-  onSaveClick() {
+  onFormClick(form: any) {
+    console.log(form);
+    this.storage.length()
+      .then((l) => {
+        let cellsCount = l;
+        if (!this.model.id) {
+          this.model.id = cellsCount + 1;
+        }
 
+        console.log(cellsCount);
+
+        this.storage.set(this.model.id.toString(), this.model);
+
+        this.storage.get(this.model.id.toString())
+          .then((val) => {
+            console.log(val);
+          });
+
+      })
   }
 }
