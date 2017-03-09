@@ -5,15 +5,13 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>{{ title }}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding no-bounce>
+  <div *ngIf="this.model">
     <form #cellForm="ngForm" (submit)="onFormSubmit(cellForm)"></form>
     <ion-item>
       <ion-label stacked>Title</ion-label>
@@ -31,6 +29,7 @@
       <ion-label stacked>Sound</ion-label>
       <ion-input type="text" [(ngModel)]=model.audioUrl></ion-input>
     </ion-item>
-    <button ion-button block  type="button" (click)="onFormSubmit(cellForm)">Save</button>
-    <pre>{{ cellForm | json }}</pre>
+    <button ion-button block type="button" (click)="onSaveClick(cellForm)">Save</button>
+    <button ion-button block type="button" color="danger" *ngIf="model.id" (click)="onRemoveClick()">Remove</button>
+  </div>
 </ion-content>

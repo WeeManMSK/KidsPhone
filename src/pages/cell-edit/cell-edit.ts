@@ -16,6 +16,10 @@ export class CellEditPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     if (this.paramsExist()) {
       this.title = "Edit cell";
+      this.storage.get(this.navParams.data)
+        .then((cell) => {
+          this.model = cell;
+        })
     } else {
       this.title = "Add cell";
       this.model = new CellModel();
@@ -27,10 +31,9 @@ export class CellEditPage {
   }
 
   ionViewDidLoad() {
-
   }
 
-  onFormSubmit(form: FormControl) {
+  onSaveClick(form: FormControl) {
     if (form.invalid) return;
     this.storage.length()
       .then((l) => {
@@ -40,5 +43,12 @@ export class CellEditPage {
         }
         this.storage.set(this.model.id.toString(), this.model);
       })
+  }
+
+  onRemoveClick() {
+    this.storage.remove(this.model.id.toString())
+      .then(() => {
+        this.navCtrl.pop();
+      });
   }
 }
