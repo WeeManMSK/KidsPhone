@@ -11,19 +11,23 @@ import { CellEditPage } from '../pages';
 })
 export class SettingsPage {
 
-  cells: CellModel[];
+  cells: CellModel[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     storage.ready()
       .then(() => {
-        storage.get('cells').then((cells: CellModel[]) => {
-          console.log(cells);
-          this.cells = cells;
+        storage.forEach((cell: CellModel, key: string) => {
+          this.cells.push(cell);
         })
-      })
+      });
   }
 
   ionViewDidLoad() {
+    console.log("Settings loaded");
+  }
+
+  onEditClick(id: number) {
+    this.navCtrl.push(CellEditPage, id);
   }
 
   onAddClick() {
