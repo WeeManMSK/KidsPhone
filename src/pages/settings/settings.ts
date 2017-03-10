@@ -33,7 +33,6 @@ export class SettingsPage {
   loadCells() {
     this.cells = [];
     this.storage.forEach((cell: CellModel, key: string) => {
-      console.log(cell);
       this.cells.push(cell);
     })
   }
