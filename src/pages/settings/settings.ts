@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { CellModel } from '../../components/components';
@@ -13,11 +13,7 @@ export class SettingsPage {
 
   cells: CellModel[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
-    // storage.ready()
-    //   .then(() => {
-    //     this.loadCells();
-    //   });
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -32,9 +28,14 @@ export class SettingsPage {
 
   loadCells() {
     this.cells = [];
+    let loader = this.loadingCtrl.create({
+      content: "Please wait..."
+    });
+    loader.present();
     this.storage.forEach((cell: CellModel, key: string) => {
       this.cells.push(cell);
     })
+    loader.dismiss();
   }
 
   onEditClick(id: number) {
