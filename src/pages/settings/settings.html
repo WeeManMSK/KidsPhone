@@ -17,7 +17,7 @@
   <ion-list>
     <ion-item *ngFor="let cell of cells">
       <ion-thumbnail item-left>
-        <img src="http://placekitten.com/80/81" alt="">
+        <img [src]="cell.imageUrl" [alt]="cell.title">
       </ion-thumbnail>
       <h2>{{ cell.title}}</h2>
       <p>{{ cell.description}}</p>

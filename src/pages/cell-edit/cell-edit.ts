@@ -15,6 +15,7 @@ export class CellEditPage {
   model: CellModel;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+    console.log(this.navParams.data);
     if (this.paramsExist()) {
       this.title = "Edit cell";
       this.storage.get(this.navParams.data)
@@ -28,7 +29,7 @@ export class CellEditPage {
   }
 
   private paramsExist(): boolean {
-    return !isNaN(Number.parseInt(this.navParams.data));
+    return typeof(this.navParams.data) === "string";
   }
 
   ionViewDidLoad() {
