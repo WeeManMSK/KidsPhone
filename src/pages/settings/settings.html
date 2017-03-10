@@ -19,8 +19,8 @@
       <ion-thumbnail item-left>
         <img src="http://placekitten.com/80/81" alt="">
       </ion-thumbnail>
-      <h2>title</h2>
-      <p>desc</p>
+      <h2>{{ cell.title}}</h2>
+      <p>{{ cell.description}}</p>
       <button ion-button clear item-right (click)="onEditClick(cell.id)">Edit</button>
     </ion-item>
   </ion-list>

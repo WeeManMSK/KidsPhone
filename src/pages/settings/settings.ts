@@ -14,16 +14,28 @@ export class SettingsPage {
   cells: CellModel[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
-    storage.ready()
-      .then(() => {
-        storage.forEach((cell: CellModel, key: string) => {
-          this.cells.push(cell);
-        })
-      });
+    // storage.ready()
+    //   .then(() => {
+    //     this.loadCells();
+    //   });
   }
 
   ionViewDidLoad() {
-    console.log("Settings loaded");
+  }
+
+  ionViewDidEnter() {
+  }
+
+  ionViewWillEnter() {
+    this.loadCells();
+  }
+
+  loadCells() {
+    this.cells = [];
+    this.storage.forEach((cell: CellModel, key: string) => {
+      console.log(cell);
+      this.cells.push(cell);
+    })
   }
 
   onEditClick(id: number) {

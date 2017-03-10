@@ -1,5 +1,5 @@
 export class CellModel {
-    public id?: number;
+    public id?: string;
     public text: string;
     public audioUrl?: string;
     public title?: string;

@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { CellModel } from '../../components/components';
+import * as uuid from 'uuid/v1';
 
 @Component({
   selector: 'page-cell-edit',
@@ -37,11 +38,11 @@ export class CellEditPage {
     if (form.invalid) return;
     this.storage.length()
       .then((l) => {
-        let cellsCount = l;
         if (!this.model.id) {
-          this.model.id = cellsCount + 1;
+          this.model.id = uuid();
         }
         this.storage.set(this.model.id.toString(), this.model);
+        this.navCtrl.pop();
       })
   }
 

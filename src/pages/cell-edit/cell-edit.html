@@ -30,6 +30,6 @@
       <ion-input type="text" [(ngModel)]=model.audioUrl></ion-input>
     </ion-item>
     <button ion-button block type="button" (click)="onSaveClick(cellForm)">Save</button>
-    <button ion-button block type="button" color="danger" *ngIf="model.id" (click)="onRemoveClick()">Remove</button>
+    <button ion-button block type="button" color="danger" *ngIf="model.id !== ''" (click)="onRemoveClick()">Remove</button>
   </div>
 </ion-content>
