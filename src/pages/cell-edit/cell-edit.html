@@ -22,12 +22,16 @@
       <ion-input type="text" required [(ngModel)]=model.description></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Image</ion-label>
-      <ion-input type="text" [(ngModel)]=model.imageUrl></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label stacked>Sound</ion-label>
-      <ion-input type="text" [(ngModel)]=model.audioUrl></ion-input>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button block color="light"><ion-icon name="image"></ion-icon>&nbsp;Image</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button block color="light"><ion-icon name="musical-notes"></ion-icon>&nbsp;Music</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-item>
     <button ion-button block type="button" (click)="onSaveClick(cellForm)">Save</button>
     <button ion-button block type="button" color="danger" *ngIf="model.id" (click)="onRemoveClick()">Remove</button>
