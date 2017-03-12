@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { CellModel } from '../../components/components';
+import { ImageEditorPage, MusicEditorPage } from '../pages';
 import * as uuid from 'uuid/v1';
 
 @Component({
@@ -29,7 +30,7 @@ export class CellEditPage {
   }
 
   private paramsExist(): boolean {
-    return typeof(this.navParams.data) === "string";
+    return typeof (this.navParams.data) === "string";
   }
 
   ionViewDidLoad() {
@@ -52,5 +53,13 @@ export class CellEditPage {
       .then(() => {
         this.navCtrl.pop();
       });
+  }
+
+  onImageButtonClick() {
+    this.navCtrl.push(ImageEditorPage, this.model.id);
+  }
+
+  onMusicButtonClick() {
+    this.navCtrl.push(MusicEditorPage, this.model.id);
   }
 }
