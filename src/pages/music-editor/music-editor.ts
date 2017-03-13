@@ -1,22 +1,32 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { CellModel } from '../../components/components';
+import { FileChooser } from 'ionic-native';
 
-/*
-  Generated class for the MusicEditor page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-music-editor',
   templateUrl: 'music-editor.html'
 })
 export class MusicEditorPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  model: CellModel;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+    this.storage.get(this.navParams.data)
+      .then((cell) => {
+        this.model = cell;
+      })
+  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MusicEditorPage');
+  }
+
+  onOpenFileClick() {
+    FileChooser.open()
+      .then((uri) => {
+        this.model.audioUrl = uri;
+      });
   }
 
 }

@@ -1,12 +1,16 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Set music</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
+  <div *ngIf="model">
+    <ion-item>
+      <ion-label stacked>Url</ion-label>
+      <ion-input type="text" required [(ngModel)]=model.audioUrl></ion-input>
+    </ion-item>
+    <p class="or">OR</p>
+    <button ion-button block type="button" (click)="onOpenFileClick()">Open file</button>
+  </div>
 </ion-content>
