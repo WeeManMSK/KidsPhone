@@ -8,5 +8,11 @@
 
 
 <ion-content padding>
-
+  <div *ngIf="model">
+    <ion-item>
+      <ion-label stacked>Url</ion-label>
+      <ion-input type="text" required [(ngModel)]=model.imageUrl></ion-input>
+    </ion-item>
+    <p class="or">OR</p>
+  </div>
 </ion-content>
