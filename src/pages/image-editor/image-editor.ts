@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { CellModel } from '../../components/components';
+import { FileChooser } from 'ionic-native';
 
 @Component({
   selector: 'page-image-editor',
@@ -9,17 +10,22 @@ import { CellModel } from '../../components/components';
 })
 export class ImageEditorPage {
 
-model: CellModel;
+  model: CellModel;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     this.storage.get(this.navParams.data)
-        .then((cell) => {
-          this.model = cell;
-        })
+      .then((cell) => {
+        this.model = cell;
+      })
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ImageEditorPage');
   }
 
+  onOpenFileClick() {
+    FileChooser.open()
+      .then((uri) => {
+        this.model.imageUrl = uri;
+      });
+  }
 }
