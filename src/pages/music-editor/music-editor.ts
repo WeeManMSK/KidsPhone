@@ -29,4 +29,9 @@ export class MusicEditorPage {
       });
   }
 
+  onSaveButtonClick() {
+    this.storage.set(this.model.id.toString(), this.model);
+    this.navCtrl.pop();
+  }
+
 }
