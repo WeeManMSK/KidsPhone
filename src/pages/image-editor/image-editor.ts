@@ -28,4 +28,9 @@ export class ImageEditorPage {
         this.model.imageUrl = uri;
       });
   }
+
+  onSaveButtonClick() {
+    this.storage.set(this.model.id.toString(), this.model);
+    this.navCtrl.pop();
+  }
 }
