@@ -9,7 +9,7 @@ import { CellModel } from './cell.model';
 export class CellComponent {
   @Input() model: CellModel;
 
-  constructor() {  }
+  constructor() { }
 
   // options : StreamingAudioOptions = {
   //   initFullscreen: false
@@ -22,5 +22,9 @@ export class CellComponent {
     // .then((msg)=>{
     //   console.log(msg);
     // });
+  }
+
+  getBackgroundColor(): string {
+    return `url(${this.model.imageUrl})`;
   }
 }

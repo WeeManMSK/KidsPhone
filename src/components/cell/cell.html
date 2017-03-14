@@ -1,4 +1,4 @@
-<div (tap)="onTap($event)" class="cell">
+<div (tap)="onTap($event)" class="cell" [style.background]="getBackgroundColor()">
 
-{{model.text}}
+{{model.title}}
 </div>
