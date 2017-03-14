@@ -11,7 +11,7 @@ import { BoardPage, AboutPage, SettingsPage } from '../pages/pages';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = SettingsPage;
+  rootPage: any = BoardPage;
 
   pages: Array<{title: string, component: any}>;
 
