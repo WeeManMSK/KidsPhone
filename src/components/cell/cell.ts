@@ -24,7 +24,7 @@ export class CellComponent {
     // });
   }
 
-  getBackgroundColor(): string {
+  getBackgroundImage(): string {
     return `url(${this.model.imageUrl})`;
   }
 }

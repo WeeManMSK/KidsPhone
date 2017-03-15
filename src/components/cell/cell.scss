@@ -1,6 +1,6 @@
 cell {
   .cell {
-    background: tomato;
+    background-size: cover;
     padding: 5px;
     width: 150px;
     height: 150px;
@@ -10,5 +10,6 @@ cell {
     font-weight: bold;
     font-size: 3em;
     text-align: center;
+    border-radius: 4px;
   }
 }
